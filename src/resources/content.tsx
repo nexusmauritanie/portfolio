@@ -57,7 +57,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/images/logos/logo.png",
   label: "Accueil",
   title: "Nexus – Solutions digitales",
   description: "Nexus conçoit des solutions numériques fiables et durables.",

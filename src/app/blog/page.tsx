@@ -9,7 +9,7 @@ export async function generateMetadata() {
     title: blog.title,
     description: blog.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
+    image: "/images/logos/logo.png",
     path: blog.path,
   });
 }
