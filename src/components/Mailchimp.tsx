@@ -70,12 +70,7 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
           {newsletter.description}
         </Text>
       </Column>
-      <Row
-        width="100%"
-        maxWidth={20}
-        horizontal="center"
-        s={{ width: "100%" }}
-      >
+      <Row fillWidth maxWidth={20} horizontal="center" s={{ width: "100%" }}>
         <Button
           id="contact-nexus"
           href="mailto:contact@nexus.mr"
