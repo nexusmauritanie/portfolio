@@ -194,7 +194,11 @@ const schema: SchemaConfig = {
 };
 
 // social links
-const sameAs: SameAsConfig = {};
+const sameAs: SameAsConfig = {
+  threads: baseURL,
+  linkedin: baseURL,
+  discord: baseURL,
+};
 
 // social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {
