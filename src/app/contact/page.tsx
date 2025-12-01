@@ -122,7 +122,7 @@ export default function Contact() {
           gap="12"
         >
           <Heading variant="heading-strong-l">Coordonnées</Heading>
-          <Column gap="10" onBackground="neutral-weak">
+          <Column gap="12" onBackground="neutral-weak">
             <Row gap="8" vertical="center">
               <Icon name="email" onBackground="brand-strong" />
               <Text as="span">contact@nexus.mr</Text>
