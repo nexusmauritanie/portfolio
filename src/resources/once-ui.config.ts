@@ -1,4 +1,4 @@
-import {
+import type {
   DataStyleConfig,
   DisplayConfig,
   EffectsConfig,
@@ -21,7 +21,7 @@ const routes: RoutesConfig = {
   "/about": true,
   "/work": true,
   "/blog": true,
-  "/gallery": true,
+  "/contact": true,
 };
 
 const display: DisplayConfig = {
@@ -75,8 +75,8 @@ const fonts: FontsConfig = {
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  brand: "custom", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "custom", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -186,19 +186,15 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: "",
+  logo: "/images/logos/logo.png",
   type: "Organization",
-  name: "Once UI",
+  name: "Nexus Technologies",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "contact@nexus.mr",
 };
 
 // social links
-const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
-};
+const sameAs: SameAsConfig = {};
 
 // social sharing configuration for blog posts
 const socialSharing: SocialSharingConfig = {

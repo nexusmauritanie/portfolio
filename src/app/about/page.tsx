@@ -31,21 +31,25 @@ export default function About() {
   const structure = [
     {
       title: about.intro.title,
+      id: "intro",
       display: about.intro.display,
       items: [],
     },
     {
       title: about.work.title,
+      id: "equipe-dirigeante",
       display: about.work.display,
       items: about.work.experiences.map((experience) => experience.company),
     },
     {
       title: about.studies.title,
+      id: "mission-vision",
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
     {
       title: about.technical.title,
+      id: "valeurs",
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
@@ -96,22 +100,35 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {person.displayLocation ?? person.location}
             </Row>
-            {person.languages && person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
+            {social.length > 0 && (
+              <Row wrap gap="8" style={{ maxWidth: "14rem" }}>
+                {social
+                  .filter((item) => item.essential)
+                  .map(
+                    (item) =>
+                      item.link && (
+                        <Button
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          size="s"
+                          weight="default"
+                          variant="secondary"
+                          style={{ flexBasis: "calc(50% - 8px)" }}
+                        >
+                          {item.name}
+                        </Button>
+                      ),
+                  )}
               </Row>
             )}
           </Column>
         )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
-            id={about.intro.title}
+            id="intro"
             fillWidth
             minHeight="160"
             vertical="center"
@@ -152,48 +169,6 @@ export default function About() {
             >
               {person.role}
             </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-              >
-                {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
-              </Row>
-            )}
           </Column>
 
           {about.intro.display && (
@@ -204,7 +179,7 @@ export default function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id="equipe-dirigeante" variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -263,7 +238,7 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id="mission-vision" variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -283,12 +258,7 @@ export default function About() {
 
           {about.technical.display && (
             <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
+              <Heading as="h2" id="valeurs" variant="display-strong-s" marginBottom="40">
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">

@@ -1,11 +1,9 @@
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 import {
   HiArrowUpRight,
   HiOutlineLink,
   HiArrowTopRightOnSquare,
-  HiEnvelope,
-  HiCalendarDays,
   HiArrowRight,
   HiOutlineEye,
   HiOutlineEyeSlash,
@@ -15,11 +13,13 @@ import {
 } from "react-icons/hi2";
 
 import {
-  PiHouseDuotone,
-  PiUserCircleDuotone,
-  PiGridFourDuotone,
-  PiBookBookmarkDuotone,
-  PiImageDuotone,
+  PiHouseFill,
+  PiUserCircleFill,
+  PiGridFourFill,
+  PiBookBookmarkFill,
+  PiImageFill,
+  PiEnvelopeSimpleFill,
+  PiCalendarCheckFill,
 } from "react-icons/pi";
 
 import {
@@ -34,15 +34,15 @@ import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitte
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
-  email: HiEnvelope,
+  email: PiEnvelopeSimpleFill,
   globe: HiOutlineGlobeAsiaAustralia,
-  person: PiUserCircleDuotone,
-  grid: PiGridFourDuotone,
-  book: PiBookBookmarkDuotone,
+  person: PiUserCircleFill,
+  grid: PiGridFourFill,
+  book: PiBookBookmarkFill,
   openLink: HiOutlineLink,
-  calendar: HiCalendarDays,
-  home: PiHouseDuotone,
-  gallery: PiImageDuotone,
+  calendar: PiCalendarCheckFill,
+  home: PiHouseFill,
+  gallery: PiImageFill,
   discord: FaDiscord,
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,

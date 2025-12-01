@@ -3,9 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, Media, Text } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, blog, work, contact } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -55,7 +55,7 @@ export const Header = () => {
         position="fixed"
         bottom="0"
         to="top"
-        height="80"
+        height="40"
         zIndex={9}
       />
       <Row
@@ -73,7 +73,13 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && (
+            <Row s={{ hide: true }}>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {person.displayLocation ?? person.location}
+              </Text>
+            </Row>
+          )}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -147,21 +153,21 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/gallery"] && (
+              {routes["/contact"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="email"
+                      href="/contact"
+                      label={contact.label}
+                      selected={pathname.startsWith("/contact")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="email"
+                      href="/contact"
+                      selected={pathname.startsWith("/contact")}
                     />
                   </Row>
                 </>

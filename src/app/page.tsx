@@ -1,20 +1,7 @@
-import {
-  Heading,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
-  Badge,
-  Row,
-  Schema,
-  Meta,
-  Line,
-} from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
+import { Heading, Text, Button, RevealFx, Column, Badge, Row, Schema, Meta, Icon } from "@once-ui-system/core";
+import { home, work, about, person, baseURL } from "@/resources";
 import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import TableOfContents from "@/components/about/TableOfContents";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -27,8 +14,60 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const services = [
+    {
+      icon: "globe",
+      title: "Développement Web",
+      description: "Sites vitrines et plateformes sur mesure, performants et accessibles.",
+    },
+    {
+      icon: "rocket",
+      title: "Applications mobiles",
+      description: "Apps iOS et Android, natives ou hybrides, centrées expérience utilisateur.",
+    },
+    {
+      icon: "document",
+      title: "Logiciels sur mesure",
+      description: "Solutions métier adaptées à vos processus et intégrations existantes.",
+    },
+    {
+      icon: "grid",
+      title: "Automatisation",
+      description: "Workflows, APIs et scripts pour gagner du temps et réduire les erreurs.",
+    },
+    {
+      icon: "book",
+      title: "ERP & systèmes métiers",
+      description: "Paramétrage, extensions et interconnexions pour piloter vos opérations.",
+    },
+    {
+      icon: "openLink",
+      title: "Cloud & Infrastructure",
+      description: "Architecture, déploiement et supervision sécurisée sur le cloud.",
+    },
+  ];
+
+  const assets = [
+    { title: "Innovation", description: "Veille continue et prototypage rapide pour tester vite." },
+    { title: "Fiabilité", description: "Process qualité et revues techniques systématiques." },
+    { title: "Simplicité", description: "Interfaces claires et parcours utilisateurs fluides." },
+    { title: "Sécurité", description: "Bonnes pratiques, audits et protection des données." },
+    { title: "Confidentialité", description: "Respect des NDA et hébergement conforme." },
+  ];
+
+  const toc = [
+    { title: "Accueil", id: "accueil", display: true, items: [] },
+    { title: "Ce que nous faisons", id: "ce-que-nous-faisons", display: true, items: [] },
+    { title: "Pourquoi nous ?", id: "pourquoi-nous", display: true, items: [] },
+    { title: "Contact", id: "contact-cta", display: true, items: [] },
+  ];
+
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+      <TableOfContents
+        structure={toc}
+        about={{ tableOfContent: { display: true, subItems: false } }}
+      />
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,7 +81,7 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
+      <Column id="accueil" fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
@@ -76,55 +115,125 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Row>
-            </Button>
+            <Row gap="12" s={{ direction: "column", align: "stretch" }}>
+              <Button
+                id="services"
+                data-border="rounded"
+                href={work.path}
+                variant="primary"
+                size="m"
+                weight="default"
+                arrowIcon
+              >
+                Découvrir nos services
+              </Button>
+              <Button
+                id="contact"
+                data-border="rounded"
+                href="mailto:contact@nexus.mr"
+                variant="secondary"
+                size="m"
+                weight="default"
+              >
+                Nous contacter
+              </Button>
+            </Row>
           </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Column fillWidth gap="24" marginBottom="l">
-          <Row fillWidth paddingRight="64">
-            <Line maxWidth={48} />
-          </Row>
-          <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <Row flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
-              </Heading>
-            </Row>
-            <Row flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Row>
-          </Row>
-          <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={48} />
+      <RevealFx translateY="12">
+        <Column id="ce-que-nous-faisons" fillWidth gap="l">
+          <Column gap="8">
+            <Heading variant="display-strong-s">Ce que nous faisons</Heading>
+            <Text onBackground="neutral-weak" variant="body-default-l">
+              Des expertises complémentaires pour bâtir vos produits numériques.
+            </Text>
+          </Column>
+          <Row
+            fillWidth
+            wrap
+            gap="12"
+            s={{ direction: "column" }}
+          >
+            {services.map((service) => (
+              <Column
+                key={service.title}
+                flex={1}
+                minWidth="16"
+                padding="l"
+                gap="8"
+                radius="l"
+                background="surface"
+                border="neutral-alpha-weak"
+                className="card-hover"
+                style={{ flexBasis: "calc(50% - 12px)", width: "calc(50% - 12px)" }}
+                s={{ style: { flexBasis: "100%", width: "100%" } }}
+              >
+                <Row gap="8" vertical="center">
+                  <Row
+                    width="40"
+                    height="40"
+                    radius="full"
+                    background="brand-alpha-weak"
+                    horizontal="center"
+                    vertical="center"
+                    border="brand-alpha-medium"
+                  >
+                    <Icon name={service.icon} onBackground="brand-strong" />
+                  </Row>
+                  <Heading as="h3" variant="heading-strong-m">
+                    {service.title}
+                  </Heading>
+                </Row>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  {service.description}
+                </Text>
+              </Column>
+            ))}
           </Row>
         </Column>
-      )}
-      <Projects range={[2]} />
-      <Mailchimp />
+      </RevealFx>
+      <RevealFx translateY="12" delay={0.1}>
+        <Column id="pourquoi-nous" fillWidth gap="l">
+          <Column gap="8">
+            <Heading variant="display-strong-s">Pourquoi nous ?</Heading>
+            <Text onBackground="neutral-weak" variant="body-default-l">
+              Une équipe engagée, focalisée sur vos résultats.
+            </Text>
+          </Column>
+          <Row
+            fillWidth
+            wrap
+            gap="12"
+            s={{ direction: "column" }}
+          >
+            {assets.map((asset) => (
+              <Column
+                key={asset.title}
+                flex={1}
+                minWidth="16"
+                padding="l"
+                gap="6"
+                radius="l"
+                background="surface"
+                border="neutral-alpha-weak"
+                className="card-hover"
+                style={{ flexBasis: "220px" }}
+              >
+                <Heading as="h3" variant="heading-strong-m">
+                  {asset.title}
+                </Heading>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  {asset.description}
+                </Text>
+              </Column>
+            ))}
+          </Row>
+        </Column>
+      </RevealFx>
+      <Column id="contact-cta" fillWidth>
+        <Mailchimp />
+      </Column>
     </Column>
   );
 }

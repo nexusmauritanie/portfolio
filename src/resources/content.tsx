@@ -1,21 +1,22 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Nexus",
+  lastName: "Technologies",
+  name: "Nexus Technologies",
+  role: "Solutions digitales et ingénierie",
+  avatar: "/images/logos/logo.png",
+  email: "contact@nexus.mr",
+  location: "Africa/Nouakchott", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  displayLocation: "Nouakchott/Mauritanie",
+  languages: ["Français", "Arabe"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Une idée ? Un besoin ?</>,
+  description: <>Contactez-nous. Nous vous répondons rapidement.</>,
 };
 
 const social: Social = [
@@ -25,31 +26,31 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "#",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "#",
     essential: true,
   },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
+    link: "#",
     essential: false,
   },
   {
     name: "Threads",
     icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "#",
     essential: true,
   },
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
+    link: "mailto:contact@nexus.mr",
     essential: true,
   },
 ];
@@ -57,35 +58,36 @@ const social: Social = [
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  label: "Accueil",
+  title: "Nexus – Solutions digitales",
+  description: "Nexus conçoit des solutions numériques fiables et durables.",
+  headline: <>Des Solutions Digitales Modernes, Fiables et Durables.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Nexus</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Ingénierie • Innovation
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/about",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      Nexus est une entreprise d’ingénierie informatique spécialisée dans le développement web,
+      mobile et logiciel.
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  label: "À propos",
+  title: `À propos – ${person.name}`,
+  description: "Découvrez Nexus Technologies, entreprise mauritanienne de solutions digitales.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -94,61 +96,65 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false,
+    link: "",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Présentation de Nexus",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Nexus Technologies est une entreprise mauritanienne spécialisée dans le développement de
+        solutions digitales modernes et sécurisées. Nous créons des outils adaptés aux besoins des
+        organisations, du site web à l’application métier sur mesure.
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Équipe dirigeante",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Mohamed Cheikh MOHAMED",
+        timeframe: "CEO",
+        role: "Vision stratégique, relation client, supervision globale.",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+              <span key="ceo-1">
+                Pilote la stratégie, s’assure de l’alignement client et supervise les projets de bout
+                en bout.
+              </span>,
+              <span key="ceo-2">
+                Garant de la qualité et de la satisfaction client sur chaque livraison.
+              </span>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "El-Havedh MOHAMED SALEH",
+        timeframe: "CFO",
+        role: "Gestion financière, organisation interne, suivi administratif.",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+              <span key="cfo-1">
+                Structure les budgets, suit les performances financières et optimise les ressources.
+              </span>,
+              <span key="cfo-2">
+                Met en place des processus internes fiables pour garantir la continuité des
+                opérations.
+              </span>,
+        ],
+        images: [],
+      },
+      {
+        company: "Sidi ZEIDAN SIDI BOUBACAR",
+        timeframe: "CTO",
+        role: "Architecture technique, développement, sécurité, innovation technologique.",
+        achievements: [
+              <span key="cto-1">
+                Conçoit l’architecture des solutions, supervise le développement et la sécurité.
+              </span>,
+              <span key="cto-2">
+                Introduit les meilleures pratiques et veille technologique pour rester à jour.
+              </span>,
         ],
         images: [],
       },
@@ -156,77 +162,55 @@ const about: About = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Notre mission et vision",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Notre mission",
+        description: (
+          <>Concevoir des solutions technologiques robustes, modernes et performantes pour accompagner la transformation digitale des organisations.</>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Notre vision",
+        description: (
+          <>Contribuer activement à l’évolution du paysage numérique mauritanien.</>
+        ),
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Nos valeurs",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Innovation",
+        description: <>Veille permanente et adoption des technologies les plus adaptées.</>,
+        tags: [],
+        images: [],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Simplicité",
+        description: <>Des interfaces claires et des parcours fluides.</>,
+        tags: [],
+        images: [],
+      },
+      {
+        title: "Fiabilité",
+        description: <>Processus qualité et contrôle rigoureux à chaque étape.</>,
+        tags: [],
+        images: [],
+      },
+      {
+        title: "Transparence",
+        description: <>Communication directe, reporting clair et accompagnement continu.</>,
+        tags: [],
+        images: [],
+      },
+      {
+        title: "Confidentialité",
+        description: <>Protection des données et respect des engagements de sécurité.</>,
+        tags: [],
+        images: [],
       },
     ],
   },
@@ -243,62 +227,19 @@ const blog: Blog = {
 
 const work: Work = {
   path: "/work",
-  label: "Work",
+  label: "Projets",
   title: `Projects – ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
 
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+const contact: Gallery = {
+  path: "/contact",
+  label: "Contact",
+  title: "Contact – Nexus",
+  description: "Échangez avec l’équipe Nexus pour vos besoins digitaux.",
+  images: [],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, contact };
