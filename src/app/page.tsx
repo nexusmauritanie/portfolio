@@ -213,7 +213,7 @@ export default function Home() {
                 flex={1}
                 minWidth="16"
                 padding="l"
-                gap="6"
+                gap="8"
                 radius="l"
                 background="surface"
                 border="neutral-alpha-weak"
