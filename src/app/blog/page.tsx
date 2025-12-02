@@ -1,8 +1,7 @@
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
+import { baseURL, blog, person } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -15,17 +14,8 @@ export async function generateMetadata() {
 }
 
 export default function Blog() {
-  const toc = [
-    { title: "Articles récents", id: "articles-recents", display: true, items: [] },
-    { title: "Articles précédents", id: "articles-precedents", display: true, items: [] },
-  ];
-
   return (
     <Column maxWidth="m" paddingTop="24">
-      <TableOfContents
-        structure={toc}
-        about={{ tableOfContent: { display: true, subItems: false } }}
-      />
       <Schema
         as="blogPosting"
         baseURL={baseURL}
