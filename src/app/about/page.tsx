@@ -161,7 +161,7 @@ export default function About() {
           </Column>
         )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40} gap="l">
-          <RevealFx translateY="6">
+          <RevealFx translateY={6}>
             <Column gap="s">
               <Heading id="presentation" variant="display-strong-xl" marginBottom="xs">
                 Nexus Technologies
@@ -173,11 +173,11 @@ export default function About() {
           </RevealFx>
 
           {sections.map((section, index) => (
-            <RevealFx key={section.id} translateY="6" delay={index * 0.05}>
-            <Column
-              id={section.id}
-              padding="l"
-              gap="s"
+            <RevealFx key={section.id} translateY={6} delay={index * 0.05}>
+              <Column
+                id={section.id}
+                padding="l"
+                gap="s"
               radius="l"
               background="surface"
               border="neutral-alpha-weak"
