@@ -61,7 +61,7 @@ const home: Home = {
   label: "Accueil",
   title: "Nexus – Solutions digitales",
   description: "Nexus conçoit des solutions numériques fiables et durables.",
-  headline: <>Des Solutions Digitales Modernes, Fiables et Durables.</>,
+  headline: <>Des Solutions Intelligentes pour un Monde Connecté</>,
   featured: {
     display: true,
     title: (
