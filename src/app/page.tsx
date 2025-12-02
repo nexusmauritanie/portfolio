@@ -204,28 +204,16 @@ export default function Home() {
                 key={`${service.title}-mobile`}
                 padding="m"
                 gap="8"
+                horizontal="start"
                 radius="l"
                 background="surface"
                 border="brand-alpha-medium"
                 className="card-hover"
                 style={{ width: "100%" }}
               >
-                <Row gap="8" vertical="center">
-                  <Row
-                    width={36}
-                    height={36}
-                    radius="full"
-                    background="brand-alpha-weak"
-                    horizontal="center"
-                    vertical="center"
-                    border="brand-alpha-medium"
-                  >
-                    <Icon name={service.icon} onBackground="brand-strong" />
-                  </Row>
-                  <Heading as="h3" variant="heading-strong-m">
-                    {service.title}
-                  </Heading>
-                </Row>
+                <Heading as="h3" variant="heading-strong-m">
+                  {service.title}
+                </Heading>
                 <Text onBackground="neutral-weak" variant="body-default-m">
                   {service.description}
                 </Text>
@@ -266,7 +254,7 @@ export default function Home() {
           </Row>
         </Column>
         <Column id="pourquoi-nous-mobile" fillWidth gap="12" hide s={{ hide: false }}>
-          <Column gap="6">
+          <Column gap="8">
             <Heading variant="display-strong-s">Pourquoi nous ?</Heading>
             <Text onBackground="neutral-weak" variant="body-default-l">
               Une équipe engagée, focalisée sur vos résultats.
@@ -277,7 +265,8 @@ export default function Home() {
               <Column
                 key={`${asset.title}-mobile`}
                 padding="m"
-                gap="6"
+                gap="8"
+                horizontal="start"
                 radius="l"
                 background="surface"
                 border="brand-alpha-medium"
