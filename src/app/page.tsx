@@ -212,8 +212,8 @@ export default function Home() {
               >
                 <Row gap="8" vertical="center">
                   <Row
-                    width="36"
-                    height="36"
+                    width={36}
+                    height={36}
                     radius="full"
                     background="brand-alpha-weak"
                     horizontal="center"
