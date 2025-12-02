@@ -203,7 +203,7 @@ export default function Home() {
               <Column
                 key={`${service.title}-mobile`}
                 padding="m"
-                gap="6"
+                gap="8"
                 radius="l"
                 background="surface"
                 border="brand-alpha-medium"
