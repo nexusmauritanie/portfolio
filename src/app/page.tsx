@@ -115,7 +115,8 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Row gap="12" s={{ direction: "column", align: "stretch" }}>
+            {/* Desktop/Tablet buttons */}
+            <Row gap="12" horizontal="center" s={{ hide: true }}>
               <Button
                 id="services"
                 data-border="rounded"
@@ -138,6 +139,32 @@ export default function Home() {
                 Nous contacter
               </Button>
             </Row>
+            {/* Mobile buttons */}
+            <Column gap="8" horizontal="center" s={{ hide: false }}>
+              <Button
+                id="services-mobile"
+                data-border="rounded"
+                href={work.path}
+                variant="primary"
+                size="m"
+                weight="default"
+                arrowIcon
+                style={{ width: "auto" }}
+              >
+                Découvrir nos services
+              </Button>
+              <Button
+                id="contact-mobile"
+                data-border="rounded"
+                href="mailto:contact@nexus.mr"
+                variant="secondary"
+                size="m"
+                weight="default"
+                style={{ width: "auto" }}
+              >
+                Nous contacter
+              </Button>
+            </Column>
           </RevealFx>
         </Column>
       </Column>
