@@ -188,7 +188,7 @@ export default function About() {
                   <Heading variant="display-strong-s">{section.title}</Heading>
                 </Row>
                 {section.body && (
-                  <Text textVariant="body-default-l" onBackground="neutral-weak">
+                  <Text variant="body-default-l" onBackground="neutral-weak">
                     {section.body}
                   </Text>
                 )}
