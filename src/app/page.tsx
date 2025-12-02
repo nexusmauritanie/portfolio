@@ -64,10 +64,12 @@ export default function Home() {
 
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
-      <TableOfContents
-        structure={toc}
-        about={{ tableOfContent: { display: true, subItems: false } }}
-      />
+      <Column className="home-toc">
+        <TableOfContents
+          structure={toc}
+          about={{ tableOfContent: { display: true, subItems: false } }}
+        />
+      </Column>
       <Schema
         as="webPage"
         baseURL={baseURL}

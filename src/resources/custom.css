@@ -43,3 +43,13 @@
   border-color: var(--scheme-brand-500) !important;
   transform: translateY(-2px);
 }
+
+.home-toc {
+  display: block;
+}
+
+@media (max-width: 1600px) {
+  .home-toc {
+    display: none !important;
+  }
+}
