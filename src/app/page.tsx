@@ -192,7 +192,7 @@ export default function Home() {
           </Row>
         </Column>
         <Column id="ce-que-nous-faisons-mobile" fillWidth gap="12" hide s={{ hide: false }}>
-          <Column gap="6">
+          <Column gap="8">
             <Heading variant="display-strong-s">Ce que nous faisons</Heading>
             <Text onBackground="neutral-weak" variant="body-default-l">
               Des expertises complémentaires pour bâtir vos produits numériques.
