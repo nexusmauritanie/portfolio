@@ -142,7 +142,7 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="12">
-        <Column id="ce-que-nous-faisons" fillWidth gap="l">
+        <Column id="ce-que-nous-faisons" fillWidth gap="l" s={{ hide: true }}>
           <Column gap="8">
             <Heading variant="display-strong-s">Ce que nous faisons</Heading>
             <Text onBackground="neutral-weak" variant="body-default-l">
@@ -159,15 +159,14 @@ export default function Home() {
               <Column
                 key={service.title}
                 flex={1}
-                minWidth="16"
                 padding="l"
                 gap="8"
                 radius="l"
                 background="surface"
                 border="neutral-alpha-weak"
                 className="card-hover"
-                style={{ flexBasis: "calc(50% - 12px)", width: "calc(50% - 12px)" }}
-                s={{ style: { flexBasis: "100%", width: "100%" } }}
+                style={{ flexBasis: "calc(50% - 12px)", width: "calc(50% - 12px)", minWidth: "0" }}
+                s={{ style: { flexBasis: "100%", width: "100%", minWidth: "100%", maxWidth: "100%" } }}
               >
                 <Row gap="8" vertical="center">
                   <Row
@@ -192,33 +191,69 @@ export default function Home() {
             ))}
           </Row>
         </Column>
+        <Column id="ce-que-nous-faisons-mobile" fillWidth gap="12" hide s={{ hide: false }}>
+          <Column gap="6">
+            <Heading variant="display-strong-s">Ce que nous faisons</Heading>
+            <Text onBackground="neutral-weak" variant="body-default-l">
+              Des expertises complémentaires pour bâtir vos produits numériques.
+            </Text>
+          </Column>
+          <Column gap="12">
+            {services.map((service) => (
+              <Column
+                key={`${service.title}-mobile`}
+                padding="m"
+                gap="6"
+                radius="l"
+                background="surface"
+                border="brand-alpha-medium"
+                className="card-hover"
+                style={{ width: "100%" }}
+              >
+                <Row gap="8" vertical="center">
+                  <Row
+                    width="36"
+                    height="36"
+                    radius="full"
+                    background="brand-alpha-weak"
+                    horizontal="center"
+                    vertical="center"
+                    border="brand-alpha-medium"
+                  >
+                    <Icon name={service.icon} onBackground="brand-strong" />
+                  </Row>
+                  <Heading as="h3" variant="heading-strong-m">
+                    {service.title}
+                  </Heading>
+                </Row>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  {service.description}
+                </Text>
+              </Column>
+            ))}
+          </Column>
+        </Column>
       </RevealFx>
       <RevealFx translateY="12" delay={0.1}>
-        <Column id="pourquoi-nous" fillWidth gap="l">
+        <Column id="pourquoi-nous" fillWidth gap="l" s={{ hide: true }}>
           <Column gap="8">
             <Heading variant="display-strong-s">Pourquoi nous ?</Heading>
             <Text onBackground="neutral-weak" variant="body-default-l">
               Une équipe engagée, focalisée sur vos résultats.
             </Text>
           </Column>
-          <Row
-            fillWidth
-            wrap
-            gap="12"
-            s={{ direction: "column" }}
-          >
+          <Row fillWidth wrap gap="12">
             {assets.map((asset) => (
               <Column
                 key={asset.title}
                 flex={1}
-                minWidth="16"
                 padding="l"
                 gap="8"
                 radius="l"
                 background="surface"
                 border="neutral-alpha-weak"
                 className="card-hover"
-                style={{ flexBasis: "220px" }}
+                style={{ flexBasis: "220px", minWidth: "0" }}
               >
                 <Heading as="h3" variant="heading-strong-m">
                   {asset.title}
@@ -229,6 +264,35 @@ export default function Home() {
               </Column>
             ))}
           </Row>
+        </Column>
+        <Column id="pourquoi-nous-mobile" fillWidth gap="12" hide s={{ hide: false }}>
+          <Column gap="6">
+            <Heading variant="display-strong-s">Pourquoi nous ?</Heading>
+            <Text onBackground="neutral-weak" variant="body-default-l">
+              Une équipe engagée, focalisée sur vos résultats.
+            </Text>
+          </Column>
+          <Column gap="12">
+            {assets.map((asset) => (
+              <Column
+                key={`${asset.title}-mobile`}
+                padding="m"
+                gap="6"
+                radius="l"
+                background="surface"
+                border="brand-alpha-medium"
+                className="card-hover"
+                style={{ width: "100%" }}
+              >
+                <Heading as="h3" variant="heading-strong-m">
+                  {asset.title}
+                </Heading>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  {asset.description}
+                </Text>
+              </Column>
+            ))}
+          </Column>
         </Column>
       </RevealFx>
       <Column id="contact-cta" fillWidth>
